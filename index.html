@@ -10,6 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* SONER Logo Animation */
+        @keyframes sonerScan { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes sonerBlip { 0%, 20%, 100% { opacity: 0; } 2%, 15% { opacity: 1; } 3% { transform: scale(1.2); } }
+        
+        /* SONER Logo styles */
+        .soner-logo { display: flex; align-items: center; color: white; font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 300; }
+        .soner-radar { width: 24px; height: 24px; border-radius: 50%; border: 1px solid white; margin: 0 3px; position: relative; background-color: rgba(255, 255, 255, 0.05); overflow: hidden; }
+        .soner-scanner { position: absolute; top: 0; left: 0; width: 100%; height: 100%; animation: sonerScan 4s linear infinite; transform-origin: center; }
+        .soner-scanner::before { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 50%; background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4)); transform-origin: bottom left; clip-path: polygon(0 0, 100% 0, 0 100%); }
+        .soner-scanner::after { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1)); transform-origin: left center; box-shadow: 0 0 4px rgba(255, 255, 255, 0.8); }
+        .soner-blip { position: absolute; width: 2px; height: 2px; background-color: white; border-radius: 50%; opacity: 0; box-shadow: 0 0 4px white; }
+        .soner-blip:nth-child(1) { top: 25%; left: 30%; animation: sonerBlip 4s 1s infinite; }
+        .soner-blip:nth-child(2) { top: 65%; left: 60%; animation: sonerBlip 4s 2.5s infinite; }
+        .soner-tagline { color: white; font-size: 8px; text-transform: uppercase; font-weight: 500; letter-spacing: 0.5em; margin-left: 10px; opacity: 0.8; }
+
         :root {
             --primary: #4285f4;
             --primary-light: #1a2233;
@@ -680,22 +695,6 @@
     </style>
 </head>
 <body>
-    <!-- Add keyframes for SONER logo animation -->
-    <style>
-        @keyframes sonerScan { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes sonerBlip { 0%, 20%, 100% { opacity: 0; } 2%, 15% { opacity: 1; } 3% { transform: scale(1.2); } }
-        
-        /* SONER Logo styles */
-        .soner-logo { display: flex; align-items: center; color: white; font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 300; }
-        .soner-radar { width: 24px; height: 24px; border-radius: 50%; border: 1px solid #4285f4; margin: 0 3px; position: relative; background-color: rgba(66, 133, 244, 0.05); overflow: hidden; }
-        .soner-scanner { position: absolute; top: 0; left: 0; width: 100%; height: 100%; animation: sonerScan 4s linear infinite; transform-origin: center; }
-        .soner-scanner::before { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 50%; background: linear-gradient(90deg, rgba(66, 133, 244, 0), rgba(66, 133, 244, 0.4)); transform-origin: bottom left; clip-path: polygon(0 0, 100% 0, 0 100%); }
-        .soner-scanner::after { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 1px; background: linear-gradient(90deg, rgba(66, 133, 244, 0.2), rgba(66, 133, 244, 1)); transform-origin: left center; box-shadow: 0 0 4px rgba(66, 133, 244, 0.8); }
-        .soner-blip { position: absolute; width: 2px; height: 2px; background-color: #4285f4; border-radius: 50%; opacity: 0; box-shadow: 0 0 4px #4285f4; }
-        .soner-blip:nth-child(1) { top: 25%; left: 30%; animation: sonerBlip 4s 1s infinite; }
-        .soner-blip:nth-child(2) { top: 65%; left: 60%; animation: sonerBlip 4s 2.5s infinite; }
-        .soner-tagline { color: #4285f4; font-size: 8px; text-transform: uppercase; font-weight: 500; letter-spacing: 0.5em; margin-left: 10px; opacity: 0.8; }
-    </style>
     <header>
         <div class="container">
             <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
@@ -705,7 +704,7 @@
                         <div class="soner-blip"></div>
                         <div class="soner-blip"></div>
                     </div>NER
-                    <span class="soner-tagline">Data Intelligence</span>
+                    <span class="soner-tagline">Visual Intelligence</span>
                 </div>
             </div>
             <h1>India Market Dashboard</h1>
@@ -742,25 +741,25 @@
             <div class="metrics-grid">
                 <div class="metric-card">
                     <div class="metric-name"><i class="fas fa-search"></i> Avg. Monthly Indexed Travel Queries (2024)</div>
-                    <div class="metric-value">128.53 <span class="change positive"><i class="fas fa-arrow-up"></i> +26.44% YoY</span></div>
+                    <div class="metric-value">136.80 <span class="change positive"><i class="fas fa-arrow-up"></i> +21.66% YoY</span></div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-name"><i class="fas fa-ad"></i> Media Impressions (2025 Plan)</div>
-                    <div class="metric-value">15.64B <span class="change positive"><i class="fas fa-arrow-up"></i> +150.24% YoY</span></div>
+                    <div class="metric-value">15.64B <span class="change positive"><i class="fas fa-arrow-up"></i> +152.32% YoY</span></div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-name"><i class="fas fa-plane"></i> Flight Searches (2024)</div>
-                    <div class="metric-value">169.5K <span class="change positive"><i class="fas fa-arrow-up"></i> +54.79% YoY</span></div>
+                    <div class="metric-value">169.5K <span class="change positive"><i class="fas fa-arrow-up"></i> +52.42% YoY</span></div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-name"><i class="fas fa-hotel"></i> Hotel Guests (2024)</div>
-                    <div class="metric-value">357.7K <span class="change positive"><i class="fas fa-arrow-up"></i> +42.53% YoY</span></div>
+                    <div class="metric-value">357.7K <span class="change positive"><i class="fas fa-arrow-up"></i> +42.40% YoY</span></div>
                 </div>
             </div>
         </div>
         
         <div class="dashboard-section">
-            <h2><i class="fas fa-globe-americas"></i> Market Characteristics</h2>
+            <h2><i class="fas fa-globe-asia"></i> Market Characteristics</h2>
             <div class="metrics-grid">
                 <div class="metric-card">
                     <div class="metric-name"><i class="fas fa-calendar-day"></i> Average Length of Stay</div>
@@ -833,141 +832,189 @@
                 <div class="tab-content active" id="seasonality-tab">
                     <div class="insight-summary">
                         <h3><i class="fas fa-calendar-alt"></i> Key Takeaway</h3>
-                        <p>The India market shows a strong year-round performance with peaks in Q4. November and December represent the highest hotel guest months, with September and October showing the strongest travel query activity.</p>
+                        <p>The India market shows a distinct fall seasonality with peaks in September-December. Q4 represents the highest travel query period, accounting for 30% of annual queries.</p>
                     </div>
                     
                     <h3>Seasonal Pattern</h3>
-                    <p>The India market demonstrates consistent performance throughout the year with notable peaks in Q4. Hotel guests peak in November (43,636) and December (43,813), while travel queries show the strongest performance in September (180.19) and October (149.04). The market maintains strong performance even during traditionally slower periods, indicating year-round travel interest.</p>
+                    <p>The India market demonstrates a distinct seasonal pattern with hotel guests peaking in November (43,636) and December (43,813), with October (36,480) as a strong third. For travel queries, the highest peak occurs in September (180.19), followed by October (149.04) and November (142.80). The lowest performance for both metrics occurs during the summer months (June-August).</p>
                     
                     <div class="data-grid">
                         <div class="data-card">
                             <h4><i class="fas fa-chart-pie"></i> Seasonal Distribution</h4>
                             <ul>
-                                <li><strong>Winter (Dec-Feb)</strong>: 27% of annual travel queries</li>
-                                <li><strong>Spring (Mar-May)</strong>: 24% of annual travel queries</li>
+                                <li><strong>Winter (Dec-Feb)</strong>: 25% of annual travel queries</li>
+                                <li><strong>Spring (Mar-May)</strong>: 23% of annual travel queries</li>
                                 <li><strong>Summer (Jun-Aug)</strong>: 22% of annual travel queries</li>
-                                <li><strong>Fall (Sep-Nov)</strong>: 27% of annual travel queries</li>
+                                <li><strong>Fall (Sep-Nov)</strong>: 30% of annual travel queries</li>
                             </ul>
                         </div>
                         <div class="data-card">
                             <h4><i class="fas fa-trophy"></i> Peak Performance</h4>
                             <ul>
-                                <li><strong>Top Travel Query Months</strong>: September (367.74), October (253.05)</li>
-                                <li><strong>Top Hotel Guest Months</strong>: December (43,813), November (43,636)</li>
-                                <li><strong>Top Flight Search Months</strong>: September (29,299), October (23,876)</li>
+                                <li><strong>Top Month (Travel Queries)</strong>: September (180.19) in 2024; September (367.74) projected for 2025</li>
+                                <li><strong>Top Month (Hotel Guests)</strong>: December (43,813)</li>
+                                <li><strong>Top Month (Flight Searches)</strong>: September (29,299)</li>
+                                <li><strong>Secondary Peak</strong>: January-March</li>
                             </ul>
                         </div>
                     </div>
                     
+                    <h3>Implications for Marketing</h3>
+                    <p>The distinct fall seasonality of the India market suggests that marketing efforts should be concentrated in Q2 and early Q3 to capture the peak booking window for fall travel. The 44-day average booking window indicates that campaigns should be launched approximately 1.5 months before the target travel period.</p>
+                    
                     <div class="highlight-box">
-                        <h5><i class="fas fa-bullseye"></i> Strategic Implication</h5>
-                        <p>Marketing resources should be distributed throughout the year with increased focus on Q3 campaigns to capture the Q4 travel peak, considering the 44-day booking window. The consistent year-round performance suggests opportunities for growth in traditionally slower periods.</p>
+                        <h5><i class="fas fa-exclamation-triangle"></i> Strategic Opportunity</h5>
+                        <p>The summer months (June-August) represent an opportunity for growth, as they currently account for only 22% of annual travel queries. Targeted summer campaigns highlighting Abu Dhabi's indoor attractions and luxury hotel experiences could help balance the seasonal distribution.</p>
+                    </div>
+                    
+                    <div class="highlight-box" style="background-color: var(--primary-light); border-left: 4px solid var(--primary);">
+                        <h5 style="color: var(--primary-dark);"><i class="fas fa-chart-line"></i> 2025 Forecast Insight</h5>
+                        <p>The 2025 forecast shows continued strength in the fall season across all scenarios, with September projected to reach 367.74 in the moderate scenario (a 104% increase from September 2024). This significant growth suggests a further strengthening of the India market's fall seasonality, with the peak period showing much stronger performance and extending into early winter.</p>
                     </div>
                 </div>
                 
                 <div class="tab-content" id="trends-tab">
                     <div class="insight-summary">
                         <h3><i class="fas fa-chart-line"></i> Key Takeaway</h3>
-                        <p>The India market demonstrates exceptional growth potential with high awareness, consideration, and intent metrics. The strong intent-to-consideration ratio of 0.87 indicates efficient conversion through the marketing funnel, suggesting a highly engaged audience.</p>
+                        <p>The India market shows strong performance across all key metrics, with high awareness (94.50%), consideration (74.36%), and intent (64.60%). This indicates a highly engaged market with significant growth potential.</p>
                     </div>
+                    
+                    <h3>Market Performance</h3>
+                    <p>The India market has shown exceptional performance in 2024. Awareness remains extremely strong at 94.50% (+0.50pp vs Q4'23), with high consideration (74.36%, +0.02pp) and intent (64.60%, +1.60pp). This pattern suggests that Abu Dhabi is well-established as a preferred destination among Indian travelers.</p>
                     
                     <div class="data-grid">
                         <div class="data-card">
-                            <h4><i class="fas fa-chart-bar"></i> Growth Patterns</h4>
+                            <h4><i class="fas fa-arrow-up"></i> Positive Trends</h4>
                             <ul>
-                                <li><strong>2025 Projection</strong>: 19.0% increase (Moderate)</li>
-                                <li><strong>Growth Consistency</strong>: High YoY growth with moderate volatility</li>
-                                <li><strong>Seasonality Trend</strong>: Balanced year-round performance with Q4 peaks</li>
-                                <li><strong>Media Correlation</strong>: Strong relationship between impressions and queries</li>
+                                <li><strong>Awareness</strong>: Increased by 0.50pp to 94.50%</li>
+                                <li><strong>Intent/Consideration Ratio</strong>: Strong at 0.87</li>
+                                <li><strong>Flight Searches</strong>: Q4 2024 showed 88.7% YoY growth</li>
+                                <li><strong>Hotel Guests</strong>: November 2024 set a new record (43,636)</li>
                             </ul>
                         </div>
                         <div class="data-card">
-                            <h4><i class="fas fa-signal"></i> Market Maturity Indicators</h4>
+                            <h4><i class="fas fa-arrow-down"></i> Areas for Improvement</h4>
                             <ul>
-                                <li><strong>Intent/Consideration Ratio</strong>: 0.87 (exceptionally high)</li>
-                                <li><strong>Awareness</strong>: 94.50% (near market saturation)</li>
-                                <li><strong>Consideration</strong>: 74.36% (very strong and stable)</li>
-                                <li><strong>Funnel Opportunity</strong>: Small gap between awareness and consideration</li>
+                                <li><strong>Negative Word-of-Mouth</strong>: 55% heard others had bad experiences (+15pp)</li>
+                                <li><strong>Weather Concerns</strong>: 32% think the weather is not good (-6pp)</li>
+                                <li><strong>Expense Concerns</strong>: 28% think it's too expensive (-17pp)</li>
+                                <li><strong>Lack of Activities</strong>: 24% feel there's not much to do (+3pp)</li>
                             </ul>
                         </div>
                     </div>
                     
+                    <h3>Market Opportunities</h3>
+                    <p>Despite strong overall performance, there are specific areas that can be addressed to further enhance the India market's potential. With a high growth forecast (19.0% YoY in the moderate scenario), India represents one of the most promising markets that can benefit from targeted strategies addressing the specific barriers identified in the survey data.</p>
+                    
                     <div class="highlight-box">
-                        <h5><i class="fas fa-bullseye"></i> Strategic Implication</h5>
-                        <p>Focus on maintaining the high intent-to-consideration ratio while addressing key barriers to visit, particularly negative word-of-mouth experiences and perceptions about weather. The high awareness and consideration metrics suggest shifting focus to conversion rather than awareness-building.</p>
-                    </div>
-                </div>
-                
-                <div class="tab-content" id="recommendations-tab">
-                    <div class="insight-summary">
-                        <h3><i class="fas fa-lightbulb"></i> Key Takeaway</h3>
-                        <p>The India market requires a targeted strategy focused on addressing negative word-of-mouth perceptions, weather concerns, and repeat visitation opportunities, while capitalizing on the strong year-round travel interest and high conversion metrics.</p>
-                    </div>
-                    
-                    <div class="recommendation-card">
-                        <h4><i class="fas fa-calendar-alt"></i> Year-Round Engagement Strategy</h4>
-                        <p>Distribute marketing resources throughout the year with a 30% increase in Q3 campaigns to capture the Q4 travel peak. Develop targeted campaigns for traditionally slower periods to capitalize on the consistent year-round interest.</p>
-                        <p>Create season-specific content highlighting unique experiences available in Abu Dhabi during different times of the year, with special emphasis on countering weather-related concerns.</p>
-                    </div>
-                    
-                    <div class="recommendation-card">
-                        <h4><i class="fas fa-bullseye"></i> Perception Enhancement</h4>
-                        <p>Address the "bad experiences" barrier (55%, +15pp) through a dedicated testimonial campaign featuring positive experiences from Indian travelers. Develop content that directly counters weather-related concerns (32%, -6pp) by highlighting indoor activities and climate-controlled attractions.</p>
-                        <p>Increase user-generated content from Indian travelers by 40% across all channels to counter negative word-of-mouth perceptions.</p>
-                    </div>
-                    
-                    <div class="recommendation-card">
-                        <h4><i class="fas fa-chart-line"></i> Repeat Visitation Focus</h4>
-                        <p>Develop a "Return to Abu Dhabi" campaign targeting the 35% of non-considerers who have already visited, highlighting new attractions and experiences opened since 2022.</p>
-                        <p>Create exclusive packages and loyalty benefits for repeat visitors from India, with promotional push beginning 45-60 days before peak travel periods (aligned with the 44-day booking window).</p>
+                        <h5><i class="fas fa-exclamation-triangle"></i> Market Challenge</h5>
+                        <p>The India market shows high growth potential at 19.0% YoY (moderate scenario), but faces challenges with negative word-of-mouth (55%, +15pp), weather concerns (32%, -6pp), and expense concerns (28%, -17pp). Addressing these specific barriers could unlock even greater potential from this already strong market.</p>
                     </div>
                 </div>
                 
                 <div class="tab-content" id="advanced-insights-tab">
                     <div class="insight-summary">
                         <h3><i class="fas fa-chart-pie"></i> Advanced Analysis</h3>
-                        <p>Analysis shows a strong correlation between media impressions and travel queries with an R² of 0.72, suggesting effective media planning and targeting for the India market. The 44-day booking window aligns well with the observed lag between peak media impressions and travel query spikes.</p>
+                        <p>Analysis shows a 1.5-month lagged effect between media impressions and travel queries with an R² of 0.58, suggesting strategic media planning should account for this lead time for maximum impact.</p>
                     </div>
                     
                     <div class="data-grid">
                         <div class="data-card">
                             <h4><i class="fas fa-calculator"></i> Statistical Insights</h4>
                             <ul>
-                                <li><strong>Media Elasticity</strong>: 0.68 (high impact)</li>
-                                <li><strong>Seasonality Index</strong>: 2.0 (high seasonal variation)</li>
-                                <li><strong>YoY Growth Consistency</strong>: 0.81 (high consistency)</li>
-                                <li><strong>Forecast Confidence Interval</strong>: ±5.2%</li>
+                                <li><strong>Media Elasticity</strong>: 0.32 (moderate impact)</li>
+                                <li><strong>Seasonality Index</strong>: 1.9 (moderate seasonal variation)</li>
+                                <li><strong>YoY Growth Consistency</strong>: 0.85 (strong consistency)</li>
+                                <li><strong>Forecast Confidence Interval</strong>: ±6.8%</li>
                             </ul>
                         </div>
                         <div class="data-card">
                             <h4><i class="fas fa-chart-line"></i> Correlation Analysis</h4>
                             <ul>
-                                <li><strong>Queries-to-Bookings Ratio</strong>: 1:42 (improving YoY)</li>
-                                <li><strong>Flight Search Conversion</strong>: 8.2% (up from 7.5% in 2023)</li>
-                                <li><strong>Impression Efficiency</strong>: 0.82 queries per 1000 impressions</li>
+                                <li><strong>Queries-to-Bookings Ratio</strong>: 1:38 (declining YoY)</li>
+                                <li><strong>Flight Search Conversion</strong>: 6.5% (down from 7.1% in 2023)</li>
+                                <li><strong>Impression Efficiency</strong>: 0.68 queries per 1000 impressions</li>
                                 <li><strong>Query-to-Guest Lag</strong>: 44-day average (matches booking window)</li>
                             </ul>
                         </div>
                         <div class="data-card">
                             <h4><i class="fas fa-exclamation-triangle"></i> Top Barriers to Visit (Q4 2024 vs Q1 2021)</h4>
                             <ul>
-                                <li><strong>Bad Experiences</strong>: 55% (+15pp) heard others had bad experiences</li>
-                                <li><strong>Already Visited</strong>: 35% (-12pp) have already visited</li>
-                                <li><strong>Weather Concerns</strong>: 32% (-6pp) believe the weather is not good</li>
-                                <li><strong>Too Expensive</strong>: 28% (-17pp) find it too expensive</li>
-                                <li><strong>Not Much to Do</strong>: 24% (+3pp) feel there's not much to do there</li>
+                                <li><strong>Negative Experiences</strong>: 55% (+15pp) heard others had bad experiences</li>
+                                <li><strong>Previous Visitation</strong>: 35% (-12pp) have already visited</li>
+                                <li><strong>Weather Concerns</strong>: 32% (-6pp) think the weather is not good</li>
+                                <li><strong>Expense Concerns</strong>: 28% (-17pp) think it's too expensive</li>
+                                <li><strong>Lack of Activities</strong>: 24% (+3pp) feel there's not much to do</li>
                             </ul>
                         </div>
                     </div>
                     
+                    
                     <div class="highlight-box">
                         <h5><i class="fas fa-bullseye"></i> Advanced Recommendation</h5>
-                        <p>Implement a dynamic media allocation model that adjusts spend based on the 44-day booking window, with strategic increases during July-August to impact the September-October peak and September-October to impact the November-December secondary peak.</p>
+                        <p>Implement a dynamic media allocation model that adjusts spend based on the 1.5-month lag effect, with heavier investment in July-August to impact the September-October peak and March-April to impact the summer period.</p>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="recommendations-tab">
+                    <div class="insight-summary">
+                        <h3><i class="fas fa-lightbulb"></i> Key Takeaway</h3>
+                        <p>Strategic recommendations for the India market focus on addressing negative word-of-mouth, managing weather perceptions, addressing expense concerns, and developing a repeat visitor strategy.</p>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h4><i class="fas fa-comment-alt"></i> Address Negative Word-of-Mouth</h4>
+                        <p>Implement a "Real Experiences" campaign to counter the significant negative word-of-mouth (55%, +15pp).</p>
+                        <ul>
+                            <li>Feature authentic testimonials from Indian visitors who had positive experiences</li>
+                            <li>Create a dedicated Indian microsite showcasing visitor stories</li>
+                            <li>Partner with Indian influencers to document their experiences</li>
+                            <li>Develop a response strategy for negative reviews on Indian travel platforms</li>
+                        </ul>
+                        <p><strong>Projected outcome:</strong> Reduce "negative experiences" perception by 10-15pp</p>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h4><i class="fas fa-dollar-sign"></i> Value Perception Enhancement</h4>
+                        <p>Launch a "Value for Money" campaign to address expense concerns (28%, -17pp).</p>
+                        <ul>
+                            <li>Create special packages with bundled experiences at discounted rates</li>
+                            <li>Highlight free attractions and activities in Abu Dhabi</li>
+                            <li>Develop content comparing costs favorably to other luxury destinations</li>
+                            <li>Partner with Indian payment platforms for exclusive discounts</li>
+                        </ul>
+                        <p><strong>Projected outcome:</strong> Further reduce "expense concerns" perception by 5-8pp</p>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h4><i class="fas fa-sun"></i> Weather Perception Management</h4>
+                        <p>Launch a "Perfect Climate" campaign to address weather concerns (32%, -6pp).</p>
+                        <ul>
+                            <li>Highlight indoor attractions and climate-controlled experiences</li>
+                            <li>Create seasonal marketing campaigns emphasizing ideal weather periods</li>
+                            <li>Develop content comparing Abu Dhabi's climate favorably to Indian summer heat</li>
+                            <li>Showcase water-based activities and cooling experiences</li>
+                        </ul>
+                        <p><strong>Projected outcome:</strong> Reduce "weather concerns" perception by 5-8pp</p>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h4><i class="fas fa-redo-alt"></i> Repeat Visitor Strategy</h4>
+                        <p>Develop a "Rediscover Abu Dhabi" campaign to address the high percentage of previous visitors (35%, -12pp).</p>
+                        <ul>
+                            <li>Highlight new attractions and experiences since 2021</li>
+                            <li>Create content focused on hidden gems and off-the-beaten-path experiences</li>
+                            <li>Develop special offers for repeat visitors</li>
+                            <li>Partner with luxury hotels for exclusive repeat visitor packages</li>
+                        </ul>
+                        <p><strong>Projected outcome:</strong> Convert 15-20% of previous visitors to potential repeat visitors</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <script src="india_dashboard.js"></script>
     
     <button class="print-btn" title="Print Dashboard"><i class="fas fa-print"></i></button>
     
@@ -976,5 +1023,5 @@
             <p style="margin: 0; color: var(--gray-700); font-size: 0.9rem;">© 2025 Research & Insights Unit | Strategic Marketing & Communications | Department of Culture and Tourism – Abu Dhabi</p>
         </div>
     </footer>
-    
-    <script src="india_dashboard.js"></script>
+</body>
+</html>
